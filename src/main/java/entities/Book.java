@@ -6,6 +6,9 @@ import java.util.Calendar;
  * Book entity.
  */
 public class Book {
+
+    private String name;
+
     private String author;
 
     private String publisher;
@@ -16,13 +19,16 @@ public class Book {
 
     private double price;
 
-    public Book(String author, String publisher, Calendar publishDate, int countOfPages, double price) {
-
-        this.author = author;
-        this.publisher = publisher;
-        this.publishDate = publishDate;
-        this.countOfPages = countOfPages;
-        this.price = price;
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", publishDate=" + publishDate +
+                ", countOfPages=" + countOfPages +
+                ", price=" + price +
+                '}';
     }
 
     @Override
@@ -34,6 +40,7 @@ public class Book {
 
         if (countOfPages != book.countOfPages) return false;
         if (Double.compare(book.price, price) != 0) return false;
+        if (name != null ? !name.equalsIgnoreCase(book.name) : book.name != null) return false;
         if (author != null ? !author.equalsIgnoreCase(book.author) : book.author != null) return false;
         if (publisher != null ? !publisher.equalsIgnoreCase(book.publisher) : book.publisher != null) return false;
         return publishDate != null ? publishDate.equals(book.publishDate) : book.publishDate == null;
@@ -43,13 +50,33 @@ public class Book {
     public int hashCode() {
         int result;
         long temp;
-        result = author != null ? author.hashCode() : 0;
+        result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (publisher != null ? publisher.hashCode() : 0);
         result = 31 * result + (publishDate != null ? publishDate.hashCode() : 0);
         result = 31 * result + countOfPages;
         temp = Double.doubleToLongBits(price);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Book(String name, String author, String publisher, Calendar publishDate, int countOfPages, double price) {
+
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
+        this.publishDate = publishDate;
+        this.countOfPages = countOfPages;
+        this.price = price;
     }
 
     public String getAuthor() {
@@ -91,16 +118,5 @@ public class Book {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "author='" + author + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", publishDate=" + publishDate +
-                ", countOfPages=" + countOfPages +
-                ", price=" + price +
-                '}';
     }
 }

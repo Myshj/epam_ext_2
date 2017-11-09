@@ -18,7 +18,8 @@ public class BookView extends View {
     public void display() {
         // System.out.println(book.toString());
         System.out.printf(
-                "Book{author=%s, publisher=%s, publishYear=%d, countOfPages=%d, price=%f\n",
+                "Book{name=%s, author=%s, publisher=%s, publishYear=%d, countOfPages=%d, price=%f\n",
+                book.getName(),
                 book.getAuthor(),
                 book.getPublisher(),
                 book.getPublishDate().get(Calendar.YEAR),
