@@ -1,11 +1,12 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  * Book entity.
  */
-public class Book {
+public class Book implements Serializable {
 
     private String name;
 
@@ -67,6 +68,9 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Book() {
     }
 
     public Book(String name, String author, String publisher, Calendar publishDate, int countOfPages, double price) {

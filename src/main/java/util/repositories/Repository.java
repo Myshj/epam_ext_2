@@ -2,11 +2,13 @@ package util.repositories;
 
 import util.collections.MyVector;
 
+import java.io.Serializable;
+
 /**
  * Generic repository for objects.
  * @param <T>
  */
-public class Repository<T> {
+public class Repository<T> implements Serializable {
     /**
      * Collection to store objects in.
      */

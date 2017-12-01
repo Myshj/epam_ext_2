@@ -15,6 +15,8 @@ public class MainMenuView extends View {
         System.out.println(MainMenuStrings.LIST_BY_AUTHOR);
         System.out.println(MainMenuStrings.LIST_PUBLISHED_AFTER);
         System.out.println(MainMenuStrings.SORT_BY_PUBLISHER);
+        System.out.println(MainMenuStrings.SAVE);
+        System.out.println(MainMenuStrings.LOAD);
         System.out.println(MainMenuStrings.QUIT);
     }
 

@@ -1,5 +1,6 @@
 package util.collections;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -7,7 +8,7 @@ import java.util.Comparator;
  * Dynamic array.
  * @param <T> Type of elements to store.
  */
-public class MyVector<T> {
+public class MyVector<T> implements Serializable {
     /**
      * Default initial capacity.
      */

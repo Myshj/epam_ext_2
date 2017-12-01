@@ -71,15 +71,13 @@ public abstract class InputStreamOperator {
     /**
      * Called every times operator started.
      */
-    protected void onStarted() {
-    }
+    protected abstract void onStarted();
 
     /**
      * Called when operator receives message.
      * @param message Received message.
      */
-    protected void onMessage(String message) {
-    }
+    protected abstract void onMessage(String message);
 
     /**
      * Stops operator.
